@@ -4133,7 +4133,6 @@ void scheduler_tick(void)
 		clear_reserved(cpu);
 	rq_unlock(rq, &rf);
 #endif
-
 }
 
 #ifdef CONFIG_NO_HZ_FULL
