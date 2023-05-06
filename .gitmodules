@@ -1,3 +1,6 @@
 [submodule "tools/pack/zip"]
 	path = tools/pack/zip
 	url = https://github.com/repinger/AnyKernel3.git
+[submodule "tools/pack/img"]
+	path = tools/pack/img
+	url = git@github.com:repinger/AIK-Linux-mirror.git
