@@ -32,6 +32,7 @@
 #define __LINUX_FOCALTECH_COMMON_H__
 
 #include "focaltech_config.h"
+#include <linux/printk_disable_msg.h>
 
 /*****************************************************************************
 * Macro definitions using #define
