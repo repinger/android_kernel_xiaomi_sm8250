@@ -12,6 +12,7 @@
 #include <linux/power_supply.h>
 #include <linux/slab.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 #include "step-chg-jeita.h"
 
 #define STEP_CHG_VOTER		"STEP_CHG_VOTER"

@@ -14,6 +14,7 @@
 #include <linux/pmic-voter.h>
 #include <linux/of_batterydata.h>
 #include <linux/ktime.h>
+#include <linux/printk_disable_msg.h>
 #include "smb5-lib-munch.h"
 #include "smb5-reg.h"
 #include "schgm-flash.h"
