@@ -1,0 +1,3 @@
+[submodule "tools/pack/zip"]
+	path = tools/pack/zip
+	url = https://github.com/repinger/AnyKernel3.git
