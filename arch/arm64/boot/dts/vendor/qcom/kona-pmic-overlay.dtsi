@@ -269,7 +269,7 @@
 };
 
 &usb0 {
-	extcon = <&pm8150b_pdphy>, <&eud>;
+	extcon = <&pm8150b_pdphy>;
 };
 
 &usb_qmp_dp_phy {
