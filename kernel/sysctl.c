@@ -144,11 +144,11 @@ static int six_hundred_forty_kb = 640 * 1024;
 #endif
 static int two_hundred_fifty_five = 255;
 static int __maybe_unused two_hundred_million = 200000000;
-#ifdef CONFIG_PELT_COMPATIBILITY_LAYER
+#ifndef CONFIG_SCHED_WALT
 static unsigned int ns_per_sec = NSEC_PER_SEC;
 static unsigned int __read_mostly sysctl_sched_group_upmigrate_pct = 100;
 static unsigned int __read_mostly sysctl_sched_group_downmigrate_pct = 95;
-#endif /* CONFIG_PELT_COMPATIBILITY_LAYER */
+#endif /* CONFIG_SCHED_WALT */
 #ifdef CONFIG_SCHED_WALT
 const int sched_user_hint_max = 1000;
 static unsigned int ns_per_sec = NSEC_PER_SEC;
@@ -372,7 +372,7 @@ static int max_extfrag_threshold = 1000;
 #endif
 
 static struct ctl_table kern_table[] = {
-#ifdef CONFIG_PELT_COMPATIBILITY_LAYER
+#ifndef CONFIG_SCHED_WALT
 	{
 		.procname	= "sched_boost",
 		.data		= &sysctl_sched_boost,
@@ -433,7 +433,7 @@ static struct ctl_table kern_table[] = {
 		.mode		= 0644,
 		.proc_handler	= proc_dointvec_minmax,
 	},
-#endif /* CONFIG_PELT_COMPATIBILITY_LAYER */
+#endif /* CONFIG_SCHED_WALT */
 	{
 		.procname	= "sched_child_runs_first",
 		.data		= &sysctl_sched_child_runs_first,
