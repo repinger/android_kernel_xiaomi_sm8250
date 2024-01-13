@@ -1984,7 +1984,7 @@ static bool check_new_pcp(struct page *page)
 #else
 static bool check_pcp_refill(struct page *page)
 {
-	return check_new_page(page);
+	return false;
 }
 static bool check_new_pcp(struct page *page)
 {
