@@ -61,6 +61,7 @@
 #include <linux/sched.h>
 #include <linux/kthread.h>
 #include <linux/dma-mapping.h>
+#include <linux/pm_qos.h>
 #include "focaltech_common.h"
 #include <linux/power_supply.h>
 
@@ -243,6 +244,8 @@ struct fts_ts_data {
 	bool power_status;
 	bool is_expert_mode;
 #endif
+	struct pm_qos_request pm_spi_req;
+    	struct pm_qos_request pm_touch_req;
 };
 
 enum GESTURE_MODE_TYPE {
