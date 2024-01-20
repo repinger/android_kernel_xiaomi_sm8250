@@ -791,9 +791,7 @@ static irqreturn_t fts_irq_handler(int irq, void *data)
 	}
 #endif
 
-	pm_stay_awake(fts_data->dev);
 	fts_irq_read_report();
-	pm_relax(fts_data->dev);
 	return IRQ_HANDLED;
 }
 
