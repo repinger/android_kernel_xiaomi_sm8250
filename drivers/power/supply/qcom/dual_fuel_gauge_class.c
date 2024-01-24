@@ -15,6 +15,7 @@
 #include <linux/delay.h>
 #include <linux/string.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 
 #include "dual_fuel_gauge_class.h"
 

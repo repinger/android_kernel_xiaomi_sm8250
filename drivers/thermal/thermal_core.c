@@ -23,6 +23,7 @@
 #include <net/genetlink.h>
 #include <linux/suspend.h>
 #include <linux/cpu_cooling.h>
+#include <linux/printk_disable_msg.h>
 #ifdef CONFIG_DRM
 #include <drm/drm_notifier_mi.h>
 #endif

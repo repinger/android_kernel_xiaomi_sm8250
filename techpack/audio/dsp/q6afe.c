@@ -12,6 +12,7 @@
 #include <linux/sched.h>
 #include <linux/delay.h>
 #include <linux/version.h>
+#include <linux/printk_disable_msg.h>
 #include <dsp/msm_audio_ion.h>
 #include <dsp/apr_audio-v2.h>
 #include <dsp/audio_cal_utils.h>

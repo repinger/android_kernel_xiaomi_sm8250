@@ -26,17 +26,11 @@
 #include <linux/debugfs.h>
 #include <linux/version.h>
 #include <linux/input.h>
+#include <linux/printk_disable_msg.h>
 #include "config.h"
 #include "tfa98xx.h"
 #include "tfa.h"
 #include "tfa_dsp_fw.h"
-
-#undef pr_info
-#undef pr_err
-#undef pr_debug
-#define pr_debug(fmt, args...) printk(KERN_INFO "[TFA9874] " pr_fmt(fmt), ##args)
-#define pr_info(fmt, args...) printk(KERN_INFO "[TFA9874] " pr_fmt(fmt), ##args)
-#define pr_err(fmt, args...) printk(KERN_ERR "[tfa9874] " pr_fmt(fmt), ##args)
 
 /* required for enum tfa9912_irq */
 #include "tfa98xx_tfafieldnames.h"

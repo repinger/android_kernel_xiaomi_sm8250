@@ -8,6 +8,7 @@
 #include <linux/ioctl.h>
 #include <linux/cdev.h>
 #include <linux/semaphore.h>
+#include <linux/printk_disable_msg.h>
 #include <elliptic/elliptic_data_io.h>
 
 #define ELLIPTIC_DEVICENAME "elliptic"

@@ -24,6 +24,7 @@
 #include <linux/platform_device.h>
 #include <linux/poll.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 
 #include "pd_policy_manager_munch.h"
 

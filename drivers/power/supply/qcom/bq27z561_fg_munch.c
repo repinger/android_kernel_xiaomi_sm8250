@@ -30,6 +30,7 @@
 #include <linux/random.h>
 #include <linux/ktime.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 #include "step-chg-jeita.h"
 
 enum print_reason {

@@ -34,6 +34,7 @@
 #include <linux/regulator/driver.h>
 #include <linux/regulator/machine.h>
 #include <linux/module.h>
+#include <linux/printk_disable_msg.h>
 
 #define CREATE_TRACE_POINTS
 #include <trace/events/regulator.h>

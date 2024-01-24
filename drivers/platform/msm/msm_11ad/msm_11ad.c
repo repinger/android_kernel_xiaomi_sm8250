@@ -26,6 +26,8 @@
 #include "wil_platform.h"
 #include "msm_11ad.h"
 
+#include <linux/printk_disable_msg.h>
+
 #define WIGIG_ENABLE_DELAY	50
 
 #define WIGIG_SUBSYS_NAME	"WIGIG"
@@ -1676,4 +1678,3 @@ EXPORT_SYMBOL(msm_11ad_modexit);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Platform driver for Qualcomm Technologies, Inc. 11ad card");
-

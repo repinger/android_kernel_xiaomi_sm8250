@@ -15,6 +15,7 @@
 #include <dsp/apr_elliptic.h>
 #include <elliptic/elliptic_mixer_controls.h>
 #include <elliptic/elliptic_data_io.h>
+#include <linux/printk_disable_msg.h>
 
 #ifndef min
 #define min(a, b) (((a) < (b)) ? (a) : (b))

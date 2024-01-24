@@ -25,6 +25,7 @@
 #include <linux/platform_data/qcom_crypto_device.h>
 #include <linux/msm-bus.h>
 #include <linux/qcedev.h>
+#include <linux/printk_disable_msg.h>
 
 #include <crypto/hash.h>
 #include "qcedevi.h"

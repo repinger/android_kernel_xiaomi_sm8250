@@ -22,6 +22,7 @@
 #include <linux/msm_ion.h>
 #include <linux/pm_domain.h>
 #include <linux/pm_qos.h>
+#include <linux/printk_disable_msg.h>
 
 #include "msm_drv.h"
 #include "msm_kms.h"

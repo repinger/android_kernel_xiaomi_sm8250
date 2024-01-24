@@ -9,6 +9,7 @@
 #include <linux/device.h>
 #include <linux/syscalls.h>
 #include <linux/input.h>
+#include <linux/printk_disable_msg.h>
 /********************************************
  * print information control
  *******************************************/

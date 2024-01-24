@@ -15,6 +15,7 @@
 #include <dsp/apr_mius.h>
 #include <mius/mius_mixer_controls.h>
 #include <mius/mius_data_io.h>
+#include <linux/printk_disable_msg.h>
 
 #ifndef min
 #define min(a, b) (((a) < (b)) ? (a) : (b))

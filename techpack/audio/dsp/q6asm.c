@@ -44,6 +44,8 @@
 #include <dsp/q6core.h>
 #include "adsp_err.h"
 
+#include <linux/printk_disable_msg.h>
+
 #ifdef AUDIO_FORCE_RESTART_ADSP
 #include <soc/qcom/subsystem_restart.h>
 #define ADSP_ERR_LIMITED_COUNT   (3)

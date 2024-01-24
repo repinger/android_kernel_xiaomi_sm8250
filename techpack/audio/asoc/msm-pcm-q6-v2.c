@@ -36,6 +36,8 @@
 #include "msm-pcm-routing-v2.h"
 #include "msm-qti-pp-config.h"
 
+#include <linux/printk_disable_msg.h>
+
 #define DRV_NAME "msm-pcm-q6-v2"
 #define TIMEOUT_MS	1000
 

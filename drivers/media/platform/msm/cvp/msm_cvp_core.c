@@ -18,6 +18,8 @@
 #include <uapi/media/msm_media_info.h>
 #include <synx_api.h>
 
+#include <linux/printk_disable_msg.h>
+
 #define MAX_EVENTS 30
 #define NUM_CYCLES16X16_HCD_FRAME 95
 #define NUM_CYCLES16X16_DME_FRAME 600

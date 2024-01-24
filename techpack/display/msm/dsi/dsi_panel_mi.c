@@ -18,6 +18,7 @@
 #include <linux/gpio.h>
 #include <linux/of_gpio.h>
 #include <linux/rtc.h>
+#include <linux/printk_disable_msg.h>
 #include <video/mipi_display.h>
 
 #include "sde_kms.h"

@@ -20,6 +20,8 @@
 #include "wsa-macro.h"
 #include "bolero-clk-rsc.h"
 
+#include <linux/printk_disable_msg.h>
+
 #define AUTO_SUSPEND_DELAY  50 /* delay in msec */
 #define WSA_MACRO_MAX_OFFSET 0x1000
 

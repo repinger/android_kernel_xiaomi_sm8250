@@ -16,6 +16,7 @@
 #include <linux/power_supply.h>
 #include <linux/slab.h>
 #include <linux/stat.h>
+#include <linux/printk_disable_msg.h>
 
 #include "power_supply.h"
 

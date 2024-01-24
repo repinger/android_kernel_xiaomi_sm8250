@@ -12,6 +12,8 @@
 #include <soc/qcom/subsystem_restart.h>
 #endif
 
+#include <linux/printk_disable_msg.h>
+
 /* ERROR STRING */
 /* Success. The operation completed with no errors. */
 #define ADSP_EOK_STR          "ADSP_EOK"

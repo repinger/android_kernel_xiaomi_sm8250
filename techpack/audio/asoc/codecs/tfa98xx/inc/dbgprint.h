@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <linux/printk_disable_msg.h>
+
 #ifndef _DBGPRINT_H
 #   define _DBGPRINT_H
 

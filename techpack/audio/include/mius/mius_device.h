@@ -10,6 +10,8 @@
 #include <linux/semaphore.h>
 #include <mius/mius_data_io.h>
 
+#include <linux/printk_disable_msg.h>
+
 #define MIUS_DEVICENAME "mius"
 #define MIUS_NUM_DEVICES 2
 

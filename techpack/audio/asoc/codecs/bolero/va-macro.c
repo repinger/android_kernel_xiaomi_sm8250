@@ -21,6 +21,8 @@
 #include "bolero-cdc-registers.h"
 #include "bolero-clk-rsc.h"
 
+#include <linux/printk_disable_msg.h>
+
 /* pm runtime auto suspend timer in msecs */
 #define VA_AUTO_SUSPEND_DELAY          100 /* delay in msec */
 #define VA_MACRO_MAX_OFFSET 0x1000

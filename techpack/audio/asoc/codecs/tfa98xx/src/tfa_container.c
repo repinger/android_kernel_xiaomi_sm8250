@@ -20,6 +20,8 @@
 #include "tfa98xx_tfafieldnames.h"
 #include "tfa_internal.h"
 
+#include <linux/printk_disable_msg.h>
+
 /* defines */
 #define MODULE_BIQUADFILTERBANK 2
 #define BIQUAD_COEFF_SIZE       6

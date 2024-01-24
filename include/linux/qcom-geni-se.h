@@ -11,6 +11,7 @@
 #include <linux/list.h>
 #include <linux/msm-bus.h>
 #include <linux/msm-bus-board.h>
+#include <linux/printk_disable_msg.h>
 
 /* Transfer mode supported by GENI Serial Engines */
 enum se_xfer_mode {

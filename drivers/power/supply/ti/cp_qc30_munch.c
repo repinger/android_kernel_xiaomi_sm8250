@@ -51,13 +51,9 @@
 #include <linux/platform_device.h>
 #include <linux/poll.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 
 #include "cp_qc30_munch.h"
-
-#ifdef pr_debug
-#undef pr_debug
-#define pr_debug pr_err
-#endif
 
 #define BATT_MAX_CHG_VOLT 4400
 #define BATT_FAST_CHG_CURR 5400

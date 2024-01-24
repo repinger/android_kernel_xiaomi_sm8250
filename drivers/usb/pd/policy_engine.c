@@ -21,6 +21,7 @@
 #include <linux/usb/typec.h>
 #include <linux/usb/usbpd.h>
 #include <linux/pmic-voter.h>
+#include <linux/printk_disable_msg.h>
 #include "usbpd.h"
 #include "ps5169.h"
 

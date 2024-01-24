@@ -20,6 +20,7 @@
 #include <dsp/audio_cal_utils.h>
 #include <dsp/q6common.h>
 #include <ipc/apr.h>
+#include <linux/printk_disable_msg.h>
 #include "adsp_err.h"
 
 #define TIMEOUT_MS 1000

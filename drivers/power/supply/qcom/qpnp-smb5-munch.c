@@ -20,6 +20,7 @@
 #include <linux/iio/consumer.h>
 #include <linux/pmic-voter.h>
 #include <linux/usb/typec.h>
+#include <linux/printk_disable_msg.h>
 #include "smb5-reg.h"
 #include "smb5-lib-munch.h"
 #include "step-chg-jeita.h"

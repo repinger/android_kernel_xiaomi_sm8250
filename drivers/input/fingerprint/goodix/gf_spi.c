@@ -45,6 +45,7 @@
 #include <linux/pm_qos.h>
 #include <linux/cpufreq.h>
 #include <linux/pm_wakeup.h>
+#include <linux/printk_disable_msg.h>
 #include <drm/drm_bridge.h>
 #ifndef GOODIX_DRM_INTERFACE_WA
 #include <drm/drm_notifier_mi.h>

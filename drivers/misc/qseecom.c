@@ -51,6 +51,7 @@
 #include <linux/cma.h>
 #include <linux/of_platform.h>
 #include <soc/qcom/qtee_shmbridge.h>
+#include <linux/printk_disable_msg.h>
 
 #define QSEECOM_DEV			"qseecom"
 #define QSEOS_VERSION_14		0x14

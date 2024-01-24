@@ -16,6 +16,8 @@
 #include <soc/swr-common.h>
 #include <soc/swr-wcd.h>
 
+#include <linux/printk_disable_msg.h>
+
 #include <asoc/msm-cdc-pinctrl.h>
 #include "bolero-cdc.h"
 #include "bolero-cdc-registers.h"

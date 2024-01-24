@@ -34,6 +34,7 @@
 #include <linux/debugfs.h>
 #include <linux/bitops.h>
 #include <linux/math64.h>
+#include <linux/printk_disable_msg.h>
 #include <asm/neon.h>
 #include "bq25970_reg.h"
 /*#include "bq2597x.h"*/

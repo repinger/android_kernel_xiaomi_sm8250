@@ -10,6 +10,7 @@
 #include <linux/printk.h>
 #include <linux/slab.h>
 #include <linux/string.h>
+#include <linux/printk_disable_msg.h>
 
 #include <linux/pmic-voter.h>
 
