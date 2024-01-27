@@ -776,6 +776,9 @@ struct devkmsg_user {
 	char buf[CONSOLE_EXT_LOG_MAX];
 };
 
+static bool userspace_write_kmsg __read_mostly = false;
+module_param(userspace_write_kmsg, bool, 0664);
+
 static ssize_t devkmsg_write(struct kiocb *iocb, struct iov_iter *from)
 {
 	char *buf, *line;
@@ -786,14 +789,12 @@ static ssize_t devkmsg_write(struct kiocb *iocb, struct iov_iter *from)
 	size_t len = iov_iter_count(from);
 	ssize_t ret = len;
 
-	/* Don't allow userspace to write to /dev/kmesg */
-	return len;
-
 	if (!user || len > LOG_LINE_MAX)
 		return -EINVAL;
 
 	/* Ignore when user logging is disabled. */
-	if (devkmsg_log & DEVKMSG_LOG_MASK_OFF)
+	if (devkmsg_log & DEVKMSG_LOG_MASK_OFF
+	    || !userspace_write_kmsg)
 		return len;
 
 	/* Ratelimit when not explicitly enabled. */
