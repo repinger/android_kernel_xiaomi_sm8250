@@ -1240,6 +1240,7 @@ config SCHED_TUNE
 	bool "Boosting for CFS tasks (EXPERIMENTAL)"
 	depends on !UCLAMP_TASK
 	depends on SMP
+	select STUNE_ASSIST
 	help
 	  This option enables support for task classification using a new
 	  cgroup controller, schedtune. Schedtune allows tasks to be given
