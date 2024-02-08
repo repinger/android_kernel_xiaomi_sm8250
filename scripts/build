@@ -1,0 +1,123 @@
+#!/usr/bin/env bash
+
+set -e
+
+push_device_dir=/sdcard
+build_dir=/tmp/out
+
+adb_su() {
+	echo "[+] adb_su: Executing $@"
+	adb wait-for-device \
+		shell su -c "$@" > /dev/null
+}
+
+adb_push() {
+	echo "[+] adb_push: Executing $@"
+	adb wait-for-device \
+		push $@ > /dev/null
+}
+
+flash_img() {
+	for partition in a b; do
+		adb_su cp -f ${push_device_dir}/$1 /dev/block/by-name/$2_${partition}
+	done
+}
+
+pack_img() {
+	bash unpackimg.sh $1
+	mv -f ${build_dir}/arch/arm64/boot/$2 split_img/$3
+	bash repackimg.sh
+	mv -f *-new.img $4
+	bash cleanup.sh
+}
+
+prepare_kernel() {
+	local kernel_name=kernel-$(git rev-parse --verify --short=7 HEAD)_$(date -I)
+	local vendor_boot_name=${kernel_name}-vendor
+	local zip_dir=$(pwd)/tools/pack/zip
+	local img_dir=${zip_dir}/../img
+
+	case $1 in
+		1) # zip
+			cp -f ${build_dir}/arch/arm64/boot/Image ${build_dir}/arch/arm64/boot/dtb* ${zip_dir}
+			cd ${zip_dir}
+
+			[ -f *.zip ] && rm -f *.zip
+			zip -r9 ${kernel_name}.zip * -x '*.git*' README.md LICENSE
+
+			adb_push ${kernel_name}.zip ${push_device_dir}
+			rm -f {dtb*,Image}
+			;;
+		2) # img
+			cd ${img_dir}
+
+			# boot (kernel)
+			pack_img boot.img Image boot.img-kernel ${kernel_name}.img
+			adb_push ${kernel_name}.img ${push_device_dir}
+			flash_img ${kernel_name}.img boot
+			rm -f ${kernel_name}.img
+
+			# vendor_boot (dtb)
+			pack_img vendor_boot.img dtb.img vendor_boot.img-dtb ${vendor_boot_name}.img
+			adb_push ${vendor_boot_name}.img ${push_device_dir}
+			flash_img ${vendor_boot_name}.img vendor_boot
+			rm -f ${vendor_boot_name}.img
+
+			# dtbo
+			adb_push ${build_dir}/arch/arm64/boot/dtbo.img ${push_device_dir}
+			flash_img dtbo.img dtbo
+
+			adb_su rm -fr /data/dalvik-cache/*
+			adb_su rm -fr ${push_device_dir}/*.img
+			adb reboot
+			;;
+	esac
+}
+
+compile_kernel() {
+	make O=${build_dir} CROSS_COMPILE=aarch64-linux-gnu- \
+		 CROSS_COMPILE_COMPAT=arm-none-eabi- \
+		 munch_defconfig -j$(nproc --all)
+	time make O=${build_dir} CROSS_COMPILE=aarch64-linux-gnu- \
+		 CROSS_COMPILE_COMPAT=arm-none-eabi- \
+		 -j$(nproc --all) 2>&1 | tee ${build_dir}/log.txt
+}
+
+clang_flag=0
+zip_flag=0
+img_flag=0
+
+for arg in "$@"; do
+    case $arg in
+        -c|--clang)
+            clang_flag=1
+            ;;
+        -z|--zip)
+            if [ $img_flag -eq 1 ]; then
+                echo "[!] Cannot pack image with -z or --zip"
+                exit 1
+            fi
+            zip_flag=1
+            ;;
+        -i|--img)
+            if [ $zip_flag -eq 1 ]; then
+                echo "[!] Cannot pack zip with -i or --img"
+                exit 1
+            fi
+            img_flag=1
+            ;;
+        *)
+            echo "[!] Invalid argument: $arg"
+            exit 22
+            ;;
+    esac
+done
+
+[ $clang_flag -eq 1 ] && export LLVM=1 LLVM_IAS=1
+
+clear
+compile_kernel
+
+[ $zip_flag -eq 1 ] && prepare_kernel 1 \
+					|| prepare_kernel 2
+exit 0
